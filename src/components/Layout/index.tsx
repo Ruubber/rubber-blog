@@ -12,7 +12,7 @@ interface PropType {
 export function Layout({ children, ...headerProps }: PropType) {
   const theme = useTheme();
   return (
-    <div style={{ background: theme.color.backgroundColor.primary }}>
+    <div style={{ background: theme.color?.backgroundColor.primary }}>
       <div
         style={{
           maxWidth: 700,

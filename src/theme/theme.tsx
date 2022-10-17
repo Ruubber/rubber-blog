@@ -2,13 +2,13 @@ import { createTheme } from "@mui/material";
 
 declare module "@mui/material/styles/createTheme" {
   interface Theme {
-    color: {
+    color?: {
       backgroundColor: { primary: string };
       color: { primary: string };
     };
   }
   interface ThemeOptions {
-    color: {
+    color?: {
       backgroundColor: { primary: string };
       color: { primary: string };
     };
