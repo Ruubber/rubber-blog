@@ -21,6 +21,7 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-slug",
+    "gatsby-plugin-material-ui",
     `gatsby-plugin-emotion`,
     "gatsby-plugin-mdx",
     "gatsby-plugin-tsconfig-paths",
