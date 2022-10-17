@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import { colorTheme } from "theme";
+import { useTheme } from "@mui/material/styles";
 
 interface PropType {
   title: string;
@@ -10,8 +10,9 @@ interface PropType {
 }
 
 export function Layout({ children, ...headerProps }: PropType) {
+  const theme = useTheme();
   return (
-    <div style={{ background: colorTheme.backgroundColor.primary }}>
+    <div style={{ background: theme.color.backgroundColor.primary }}>
       <div
         style={{
           maxWidth: 700,
