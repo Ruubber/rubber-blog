@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-slug",
     `gatsby-plugin-emotion`,
     "gatsby-plugin-mdx",
