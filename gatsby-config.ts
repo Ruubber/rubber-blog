@@ -12,6 +12,7 @@ const gatsbyRequiredRules = path.join(
 
 const config: GatsbyConfig = {
   jsxRuntime: "automatic",
+  jsxImportSource: "@emotion/react",
   siteMetadata: {
     title: `Rubber Blog`,
     description: `Rubber Blog With Gatsby.JS`,
