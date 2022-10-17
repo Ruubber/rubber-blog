@@ -1,27 +1,11 @@
 import path from "path";
-import { Actions, Reporter } from "gatsby";
-
-export const onCreateBabelConfig = ({ actions }: { actions: Actions }) => {
-  const { setBabelPlugin } = actions;
-
-  setBabelPlugin({
-    name: "@babel/plugin-transform-react-jsx",
-    options: {
-      runtime: "automatic",
-    },
-  });
-};
+import { CreatePagesArgs } from "gatsby";
 
 export const createPages = async ({
   actions,
   graphql,
   reporter,
-}: {
-  actions: Actions;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  graphql: any;
-  reporter: Reporter;
-}) => {
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
   const blogIndex = path.resolve("./src/templates/blogIndex.tsx");
@@ -29,22 +13,21 @@ export const createPages = async ({
   createPage({
     path: "/",
     component: blogIndex,
-    context: {},
   });
 
   const result: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     errors?: any;
     data?: {
-      allMarkdownRemark: { nodes: { frontmatter: { path?: string } }[] };
+      allMarkdownRemark: { nodes: { fields: { slug?: string } }[] };
     };
   } = await graphql(
     `
       {
         allMarkdownRemark {
           nodes {
-            frontmatter {
-              path
+            fields {
+              slug
             }
           }
         }
@@ -60,15 +43,15 @@ export const createPages = async ({
   const blogPost = path.resolve("./src/templates/blogPost.tsx");
 
   result.data?.allMarkdownRemark.nodes.forEach((node) => {
-    const { path } = node.frontmatter;
-    if (!path) return;
+    const { slug } = node.fields;
+    if (!slug) return;
 
     // Type-safe `createPage` call.
     createPage({
-      path,
+      path: slug,
       component: blogPost,
       context: {
-        path,
+        slug,
       },
     });
   });

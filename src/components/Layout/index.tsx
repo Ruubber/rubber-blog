@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import { Global, css } from "@emotion/react";
+import { colorTheme } from "theme";
 
 interface PropType {
   title: string;
@@ -11,7 +11,7 @@ interface PropType {
 
 export function Layout({ children, ...headerProps }: PropType) {
   return (
-    <div>
+    <div style={{ background: colorTheme.backgroundColor.primary }}>
       <div
         style={{
           maxWidth: 700,
@@ -20,17 +20,6 @@ export function Layout({ children, ...headerProps }: PropType) {
           minHeight: "100vh",
         }}
       >
-        <Global
-          styles={css`
-            html,
-            body {
-              width: 100%;
-              height: 100%;
-              margin: 0;
-              padding: 0;
-            }
-          `}
-        />
         <Header {...headerProps} />
         {children}
         <Footer info={[]} />

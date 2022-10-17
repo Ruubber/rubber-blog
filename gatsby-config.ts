@@ -11,21 +11,19 @@ const gatsbyRequiredRules = path.join(
 );
 
 const config: GatsbyConfig = {
+  jsxRuntime: "automatic",
   siteMetadata: {
-    title: `rubber-blog`,
+    title: `Rubber Blog`,
+    description: `Rubber Blog With Gatsby.JS`,
     siteUrl: `https://rubber.gatsbyjs.io`,
   },
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-emotion",
+    "gatsby-plugin-slug",
+    `gatsby-plugin-emotion`,
     "gatsby-plugin-mdx",
     "gatsby-plugin-tsconfig-paths",
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [],
-      },
-    },
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {

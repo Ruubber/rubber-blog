@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { Typography } from "@mui/material";
+import { HeaderTypo } from "./styles";
 
 export default function Header({
   title,
@@ -13,11 +13,12 @@ export default function Header({
   return (
     <>
       <Helmet>
-        <title>Rubber Blog</title>
+        <title>{title}</title>
+        <meta name="description" content="Rubber Blog With Gatsby.JS" />
       </Helmet>
       <header style={{ padding: "30px 0" }}>
-        <Typography>{title}</Typography>
-        <Typography>{description}</Typography>
+        <HeaderTypo type="title">{title}</HeaderTypo>
+        <HeaderTypo type="description">{description}</HeaderTypo>
       </header>
     </>
   );
