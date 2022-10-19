@@ -20,10 +20,7 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-slug",
-    "gatsby-plugin-material-ui",
-    "gatsby-theme-material-ui",
     `gatsby-plugin-emotion`,
     "gatsby-plugin-mdx",
     "gatsby-plugin-tsconfig-paths",
